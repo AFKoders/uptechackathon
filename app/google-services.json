@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "538775022953",
+    "firebase_url": "https://uptechackathon-a9759.firebaseio.com",
+    "project_id": "uptechackathon-a9759",
+    "storage_bucket": "uptechackathon-a9759.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538775022953:android:d2c34f82c5c8aedc1461f8",
+        "android_client_info": {
+          "package_name": "com.afkoders.hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538775022953-gc9108fvvhrd961gq5rqbupuf6p6m4l2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.afkoders.hackathon",
+            "certificate_hash": "d89cc9ba3aaf5b02284bd0d9cf363ebd7d64d97c"
+          }
+        },
+        {
+          "client_id": "538775022953-l8ktu14a81jeo8sfs0g6gjokkodjk301.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI_ciCDgN2dLyPqyLzEy2WQ6IZqkeALOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538775022953-l8ktu14a81jeo8sfs0g6gjokkodjk301.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

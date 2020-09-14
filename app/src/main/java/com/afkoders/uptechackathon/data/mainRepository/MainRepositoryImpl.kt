@@ -1,6 +1,7 @@
 package com.afkoders.uptechackathon.data.mainRepository
 
 import android.util.Log
+import com.afkoders.uptechackathon.data.models.EmployeeModel
 import com.afkoders.uptechackathon.data.prefs.AppPrefs
 import com.afkoders.uptechackathon.data.service.ApiService
 import com.afkoders.uptechackathon.di.qualifiers.SchedulerIO
@@ -42,17 +43,17 @@ class MainRepositoryImpl @Inject constructor(
             .subscribeOn(schedulerIO)
             .observeOn(schedulerUI)
 
-    override fun getTestDataFromNetwork(): Single<List<String>> =
+    override fun getTestDataFromNetwork(): Single<List<EmployeeModel>> =
         apiService.getTestDataFromNetwork()
             .map {
                 appPrefs.putEmployees(it.data.toMutableList())
-                it.data.map { it.employeeName }
+                it.data
             }
             .subscribeOn(schedulerIO)
             .observeOn(schedulerUI)
 
-    override fun getTestDataFromDataStorage(): Single<List<String>> {
+    override fun getTestDataFromDataStorage(): Single<List<EmployeeModel>> {
         val employees = appPrefs.employees
-        return if (employees.isEmpty()) getTestDataFromNetwork() else Single.just(employees.map { it.employeeName })
+        return if (employees.isEmpty()) getTestDataFromNetwork() else Single.just(employees)
     }
 }

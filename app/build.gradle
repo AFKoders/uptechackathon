@@ -19,6 +19,10 @@ repositories {
 
 def CONFIG = { k -> "\"${project.properties.get(k)}\"" }\
 
+androidExtensions {
+    experimental = true
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -123,5 +127,9 @@ dependencies {
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha01"
 
     implementation 'com.google.firebase:firebase-firestore-ktx:21.6.0'
+
+    // Groupie
+    implementation "com.xwray:groupie:2.8.1"
+    implementation "com.xwray:groupie-kotlin-android-extensions:2.8.1"
 
 }

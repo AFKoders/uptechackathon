@@ -10,7 +10,7 @@ class MainFragmentPresenter @Inject constructor(private val mainRepository: Main
     MainFragmentAgreement.Presenter {
 
     override fun loadMainData() {
-        mainRepository.getTestData()
+        mainRepository.getTestDataFromDataStorage()
             .bindLoading()
             .subscribe({
                 model = FragmentCacheModel(

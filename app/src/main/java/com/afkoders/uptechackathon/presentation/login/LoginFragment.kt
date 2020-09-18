@@ -2,19 +2,27 @@ package com.afkoders.uptechackathon.presentation.login
 
 import android.app.Activity.RESULT_CANCELED
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import com.afkoders.uptechackathon.R
 import com.afkoders.uptechackathon.presentation.base.BaseFragmentImpl
 import com.afkoders.uptechackathon.presentation.login.model.User
+import com.erkutaras.showcaseview.ShowcaseManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import kotlinx.android.synthetic.main.fragment_login.*
 
-class LoginFragment : BaseFragmentImpl<LoginAgreement.Presenter, LoginAgreement.View>(R.layout.fragment_login),
+
+class LoginFragment :
+    BaseFragmentImpl<LoginAgreement.Presenter, LoginAgreement.View>(R.layout.fragment_login),
     LoginAgreement.View {
     lateinit var mGoogleSignInClient: GoogleSignInClient
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun setupInputs() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
@@ -24,7 +32,7 @@ class LoginFragment : BaseFragmentImpl<LoginAgreement.Presenter, LoginAgreement.
         val account = GoogleSignIn.getLastSignedInAccount(requireActivity())
 
         if (account != null) {
-            navigateToMainScreen()
+            //    navigateToMainScreen()
         }
 
         sign_in_button.bindClick {
@@ -32,6 +40,25 @@ class LoginFragment : BaseFragmentImpl<LoginAgreement.Presenter, LoginAgreement.
         }
 
         tvSignin.bindClick { signIn() }
+
+        val builder: ShowcaseManager.Builder = ShowcaseManager.Builder()
+        textView4.postDelayed({
+            builder.context(requireContext())
+                .key("KEY")
+                .developerMode(true)
+                .view(textView4)
+                .descriptionImageRes(R.mipmap.ic_launcher)
+                .descriptionTitle("LOREM IPSUM")
+                .descriptionText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+                .buttonText("Done")
+                .buttonVisibility(true)
+                .cancelButtonVisibility(true)
+                .alphaBackground(50)
+                .cancelButtonColor(Color.GREEN)
+                .add()
+                .build()
+                .show()
+        }, 2000)
     }
 
     private fun navigateToMainScreen() {

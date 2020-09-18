@@ -15,6 +15,7 @@ repositories {
     jcenter()
     mavenCentral()
     google()
+    maven { url 'https://jitpack.io' }
 }
 
 def CONFIG = { k -> "\"${project.properties.get(k)}\"" }\
@@ -136,4 +137,7 @@ dependencies {
     implementation "com.google.firebase:firebase-auth:19.2.0"
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
+
+    //Tutorials
+    implementation 'com.github.erkutaras:ShowcaseView:1.5.0'
 }

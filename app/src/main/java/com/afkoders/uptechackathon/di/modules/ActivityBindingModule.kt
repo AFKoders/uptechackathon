@@ -11,4 +11,5 @@ interface ActivityBindingModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [MainActivityModule::class])
     fun mainActivity(): MainActivity
+
 }

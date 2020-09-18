@@ -3,6 +3,9 @@ package com.afkoders.uptechackathon.presentation
 import android.content.Context
 import com.afkoders.uptechackathon.di.qualifiers.ActivityContext
 import com.afkoders.uptechackathon.di.scope.FragmentScope
+import com.afkoders.uptechackathon.presentation.login.LoginAgreement
+import com.afkoders.uptechackathon.presentation.login.LoginFragment
+import com.afkoders.uptechackathon.presentation.login.LoginPresenter
 import com.afkoders.uptechackathon.presentation.main.MainFragment
 import com.afkoders.uptechackathon.presentation.main.MainFragmentAgreement
 import com.afkoders.uptechackathon.presentation.main.MainFragmentPresenter
@@ -24,4 +27,11 @@ interface MainActivityModule {
     @ActivityContext
     @Binds
     fun bindActivityContext(mainActivity: MainActivity): Context
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun loginFragment(): LoginFragment?
+
+    @Binds
+    fun loginPresenter(loginPresenter: LoginPresenter): LoginAgreement.Presenter
 }

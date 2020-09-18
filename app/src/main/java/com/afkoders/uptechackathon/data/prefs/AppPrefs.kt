@@ -2,6 +2,7 @@ package com.afkoders.uptechackathon.data.prefs
 
 import android.content.Context
 import com.afkoders.uptechackathon.data.models.EmployeeModel
+import com.afkoders.uptechackathon.presentation.login.model.User
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -21,6 +22,10 @@ class AppPrefs constructor(
 
     fun putEmployees(list: MutableList<EmployeeModel>) {
         employees = list
+    }
+
+    fun putUser(user: User) {
+
     }
 
     var employees: MutableList<EmployeeModel>
